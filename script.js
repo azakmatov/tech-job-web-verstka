@@ -184,7 +184,7 @@ buttons.forEach(btn => {
 // Дополнительно: при изменении ориентации (книжная ↔ альбомная)
 window.addEventListener('orientationchange', () => {
     // Можно принудительно обновить scroll-margin-top, если используется фиксированный хедер
-    // document.querySelector('#message').scrollIntoView({ behavior: 'smooth', block: 'center' });
+    document.querySelector('#message').scrollIntoView({ behavior: 'smooth', block: 'center' });
 });
 
 
