@@ -150,44 +150,16 @@ items.forEach(item => {
     });
 });
 
-// const buttons = document.querySelectorAll('.select__btn');
-// buttons.forEach(btn => {
-//     btn.addEventListener('click', () => {
-//         const tariffName = btn.closest('.tariff').querySelector('h3').textContent;
-//         messageField.value = "Выбран тариф '" + tariffName + "'";
-//         messageField.focus();
-//         // Плавно скроллим к форме
-//         // messageField.scrollIntoView({ behavior: 'smooth', block: 'center' });
-//     });
-// });
-
 const buttons = document.querySelectorAll('.select__btn');
-const messageField = document.querySelector('#message');
-
-function scrollToMessage() {
-    // Скроллим плавно к полю формы
-    messageField.scrollIntoView({ behavior: 'smooth', block: 'center' });
-}
-
 buttons.forEach(btn => {
     btn.addEventListener('click', () => {
         const tariffName = btn.closest('.tariff').querySelector('h3').textContent;
         messageField.value = "Выбран тариф '" + tariffName + "'";
         messageField.focus();
-
-        // Обеспечиваем корректный скролл независимо от ориентации
-        // Делаем небольшую задержку, чтобы браузер успел пересчитать layout после focus
-        setTimeout(scrollToMessage, 50);
+        // Плавно скроллим к форме
+        // messageField.scrollIntoView({ behavior: 'smooth', block: 'center' });
     });
 });
-
-// Дополнительно: при изменении ориентации (книжная ↔ альбомная)
-window.addEventListener('orientationchange', () => {
-    // Можно принудительно обновить scroll-margin-top, если используется фиксированный хедер
-    document.querySelector('#message').scrollIntoView({ behavior: 'smooth', block: 'center' });
-});
-
-
 
 // ===== Очистка формы после отправки =====
 document.addEventListener('DOMContentLoaded', () => {
